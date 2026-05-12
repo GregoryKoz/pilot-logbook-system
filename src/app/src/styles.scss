@@ -1,0 +1,244 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: #1a2332;
+  color: #cdd5e0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+
+  .sidebar-header {
+    padding: 20px 16px;
+    background: #111b2b;
+    h2 {
+      font-size: 1.2rem;
+      color: #4da6ff;
+      letter-spacing: 1px;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 12px 0;
+    li a {
+      display: block;
+      padding: 10px 20px;
+      color: #a0aec0;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.15s;
+      &:hover { background: #2d3748; color: #e2e8f0; }
+      &.active { background: #2b4a7a; color: #90cdf4; font-weight: 600; }
+    }
+  }
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.page {
+  padding: 28px 32px;
+
+  h1 {
+    font-size: 1.6rem;
+    color: #1a2332;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  margin-top: 16px;
+
+  thead tr {
+    background: #2b4a7a;
+    color: #fff;
+  }
+
+  th, td {
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.875rem;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #e8ecf0;
+    &:hover { background: #f7f9fc; }
+    &.expiring { background: #fff8e1; }
+  }
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 10px;
+  padding: 28px 32px;
+  width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+
+  h2 {
+    margin-bottom: 20px;
+    color: #1a2332;
+    font-size: 1.2rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #555;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #d1d9e0;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.15s;
+    &:focus { border-color: #4da6ff; }
+  }
+}
+
+.modal-wide {
+  width: 700px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+  .full-width { grid-column: 1 / -1; }
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  background: #2b4a7a;
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.15s;
+  &:hover { background: #1d3560; }
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #4a5568;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  font-weight: 600;
+  &:hover { background: #cbd5e0; }
+}
+
+.btn-edit {
+  background: #3182ce;
+  color: #fff;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-right: 6px;
+  &:hover { background: #2b6cb0; }
+}
+
+.btn-delete {
+  background: #e53e3e;
+  color: #fff;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  &:hover { background: #c53030; }
+}
+
+.badge-ok {
+  background: #c6f6d5;
+  color: #276749;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-warning {
+  background: #fefcbf;
+  color: #975a16;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.nalot-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  h3 { margin-bottom: 12px; color: #2b4a7a; }
+}
